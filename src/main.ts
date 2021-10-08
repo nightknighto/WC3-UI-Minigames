@@ -16,8 +16,8 @@ function tsMain() {
 
     SetupExtPlayers()
     FrameAnimation.Init()
-    new DuckHunt()
-    // new Restaurant()
+    // new DuckHunt()
+    new Restaurant()
 
     
 
