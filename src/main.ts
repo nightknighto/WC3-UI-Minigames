@@ -4,6 +4,7 @@ import { EditboxNumbersOnlyInit } from "Custom Classes/Editbox";
 import { Timer } from "w3ts/index";
 import { DuckHunt } from "duckHunt";
 import { FrameAnimation } from "Custom Classes/FramesAnimations";
+import { Restaurant } from "Restaurant";
 
 const BUILD_DATE = compiletime(() => new Date().toUTCString());
 const TS_VERSION = compiletime(() => require("typescript").version);
@@ -14,8 +15,9 @@ function tsMain() {
   try {
 
     SetupExtPlayers()
-    new FrameAnimation()
+    FrameAnimation.Init()
     new DuckHunt()
+    // new Restaurant()
 
     
 
