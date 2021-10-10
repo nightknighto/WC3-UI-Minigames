@@ -1,6 +1,6 @@
 {
   "mapFolder": "Battle System.w3x",
-  "minifyScript": false,
+  "minifyScript": true,
   "gameExecutable": "G:\\Warcraft III\\_retail_\\x86_64\\Warcraft III.exe",
   "outputFolder": "./dist/bin",
   "launchArgs": [

@@ -53,6 +53,9 @@ export namespace FrameAnimation {
         periodic: boolean
         periodicLaps: number = 2
 
+        /**Put a function that will be run after the animation ends */
+        onEnding: () => void;
+
         sizeX = 0
         sizeY = 0
 
@@ -91,6 +94,7 @@ export namespace FrameAnimation {
 
                         const ending = () => {
                             this.expandArray.splice(this.expandArray.indexOf(ob), 1)
+                            if(ob.onEnding) ob.onEnding()
                         }
 
                     if(end) {
@@ -185,6 +189,20 @@ export namespace FrameAnimation {
         posY = 0
 
         static slideArray: Slide[] = []
+
+        /**Pauses/Stops the animation */
+        pause() {
+            if(Slide.slideArray.indexOf(this) >= 0) {
+                Slide.slideArray.splice(Slide.slideArray.indexOf(this), 1)
+            }
+        }
+
+        /**Resumes/Continues the animation */
+        resume() {
+            if(Slide.slideArray.indexOf(this) < 0) {
+                Slide.slideArray.push(this);
+            }
+        }
 
         static init() {
             new Timer().start(0.01, true, () => this.slideTimerActions())
