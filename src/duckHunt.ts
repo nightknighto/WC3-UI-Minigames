@@ -180,7 +180,7 @@ export class DuckHunt {
       this.Ducks.push(new Duck(this, 'Red'))
       this.Ducks.push(new Duck(this, 'Blue'))
       this.Ducks.push(new Duck(this, 'Black'))
-      FrameAnimation.blink([this.duckTextScore], [ExtPlayer.fromIndex(0)], 0.5, 20)
+      new FrameAnimation.Blink([this.duckTextScore], [ExtPlayer.fromIndex(0)], 0.5, 20)
    }
 
    duckShot(score: number) {
