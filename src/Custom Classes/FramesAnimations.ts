@@ -65,7 +65,8 @@ export namespace FrameAnimation {
             new Timer().start(0.01, true, () => this.expandTimerActions())
         }
 
-        static expandTimerActions() {try{
+        static expandTimerActions() {
+        try{
             for(let ob of this.expandArray) {
                 ob.freqTimer += 0.01;
                 if(ob.freqTimer >= ob.frequency) {
@@ -101,10 +102,8 @@ export namespace FrameAnimation {
                         if(ob.periodic) {
                             ob.periodicLaps--;
                             ob.speed.x *= -1
-                            ob.speed.y *= -1
-                            let temp = ob.startSize;
-                            ob.startSize = ob.endSize
-                            ob.endSize = temp;
+                            ob.speed.y *= -1;
+                            [ob.startSize, ob.endSize] = [ob.endSize, ob.startSize]
                             if(ob.periodicLaps <= 0) {
                                 ending()
                             }
@@ -243,10 +242,8 @@ export namespace FrameAnimation {
                         if(ob.periodic) {
                             ob.periodicLaps--;
                             ob.speed.x *= -1
-                            ob.speed.y *= -1
-                            let temp = ob.startPoint;
-                            ob.startPoint = ob.endPoint
-                            ob.endPoint = temp;
+                            ob.speed.y *= -1;
+                            [ob.startPoint, ob.endPoint] = [ob.endPoint, ob.startPoint]
                             if(ob.periodicLaps <= 0) {
                                 ending()
                             }
